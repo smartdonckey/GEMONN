@@ -73,11 +73,11 @@ python Main.py --Generations 500 --Popsize 50 --HiddenNum 500 --plot  --save --s
 
  
  <div align="center">
-<img src="./result/restruction_0.svg" height="400" width="400" >
+<img src="./result/restruction_0.svg" height="300" width="300" >
 
-<img src="./result/restruction_50.svg" height="400" width="400" >
+<img src="./result/restruction_50.svg" height="350" width="350" >
 
-<img src="./result/restruction_100.svg" height="400" width="400" >
+<img src="./result/restruction_100.svg" height="350" width="350" >
 
  </div>
 
