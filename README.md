@@ -16,7 +16,8 @@ python Main.py
 python Main.py --Generations 500 --Popsize 50 --HiddenNum 500 --plot  --save --save_dir ./result
 ```
 ## Result 
-This is the results of Auto-Encoder (AE) with sinlge hidden layer on MNIST results
+This is the results of Auto-Encoder (AE) with sinlge hidden layer on MNIST results:
+the x-axis is MSE loss, and the y-axis is the sparsity in term of L0-norm
 
 Initial result: 
 ![Solution of initialization SSGD](./result/plot_initialization.png)
@@ -26,6 +27,7 @@ Result after evolution:
 
 Final results:
 ![Solution after SSGD](./result/plot_500.png)
+
 
 ## Extension on more models
 For training more models such as LSTM and CNNs, there are guidance  in  `Private_function.py' :
