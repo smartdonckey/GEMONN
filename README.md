@@ -24,6 +24,27 @@ Result after evolution:
 
 Final results:
 
-## Extensiion
-For More models such as LSTM and CNNs, you can use the 
+## Extension on more models
+For training more models such as LSTM and CNNs, there are guidance  in  `Private_function.py' :
+
+1) Get your model in pytorch
+```bash
+Model = LeNet()
+```
+2) Get the weights dictionary of model :
+```bash
+ Parameter_dict = Model.state_dict()
+```
+3) Initialize the population and obtain corresponding size and length inforamtion of weighs in different parts of the model :
+```bash
+ Population, Boundary, Coding, SizeInform, LengthInform = Initialization_Pop(PopSize =10, Model = Model)
+```
+4) Obtain the weights dictionary of each individual in population and compte the inference loss for evaluation:
+```bash
+ Parameter_dict_i = Pop2weights(Population[0], SizeInform, LengthInform, Parameter_dict)
+ Model.load_state_dict(Parameter_dict_i)
+```
+5) Train this model by GEMONN supported by sparse-SGD or spare-Adam
+
+
 
