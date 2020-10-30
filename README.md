@@ -18,7 +18,7 @@ python Main.py
 python Main.py --Generations 500 --Popsize 50 --HiddenNum 500 --plot  --save --save_dir ./result
 ```
 ## Result 
- This is the results of Auto-Encoder (AE) with sinlge hidden layer on MNIST results: the x-axis is MSE loss, and the y-axis is the sparsity in term of L0-norm
+ #### This is the results of Auto-Encoder (AE) with sinlge hidden layer on MNIST results: the x-axis is MSE loss, and the y-axis is the sparsity in term of L0-norm
 
 Initial result: 
 ![Solution of initialization SSGD](./result/plot_initialization.png)
@@ -29,22 +29,35 @@ Result after evolution:
 Final results:
 ![Solution after SSGD](./result/plot_500.png)
 
- Next, the comparison of  final solutions obtained by GEMONN, SGD, Adam, and NSGA-II vatiants on MNIST is shown in the MSE-Sparsity axis as follows:
+ #### Next, the comparison of  final solutions obtained by GEMONN, SGD, Adam, and NSGA-II vatiants on MNIST is shown in the MSE-Sparsity axis as follows:
 ![MSE_pareto](./result/MSE_Pareto.png)
 
-Then, the convergence spped of GEMONN and these compared approaches in terms of the decline in MSE are presented (MNIST):
+#### Then, the convergence spped of GEMONN and these compared approaches in terms of the decline in MSE are presented (MNIST):
 ![MSE_decline](./result/MSE_descent.png)
 
 #### The following figure shows the test CCR values (accuracy) of the models on ten datasets, which tail a classifier  to the hidden layer of the AE:
 ![MSE_decline](./result/acc_comparison.png)
 
- In the following,  the comparison of final solution in terms of sparsity is given:
+ #### In the following,  the comparison of final solution in terms of sparsity is given:
+ ![sparsity_comparison](./result/sparsity_comparison.png) 
 
- The sparsity obtained by GEMONN in different generation:
-![1st_weights](./result/1st_weights.png) ![2nd_weights](./result/10th_weights.png)
-![3rd_weights](./result/100th_weights.png) ![4th_weights](./result/500th_weights.png)
+ #### The sparsity obtained by GEMONN in different generation:
+![1st_weights](./result/1st_weights.png) 
+（1st generation）
 
- The reconstruction image of the optimal solution obtained by GEMONN in different generation:
+![2nd_weights](./result/10th_weights.png)
+（10th generation）
+
+![3rd_weights](./result/100th_weights.png) 
+（100th generation）
+
+![4th_weights](./result/500th_weights.png)
+（500th generation）
+
+
+#### The reconstruction image of the optimal solution obtained by GEMONN in different generation:
+
+
 
 ## Extension on more models
 For training more models such as LSTM and CNNs, there are guidance  in  `Private_function.py` :
