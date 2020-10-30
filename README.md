@@ -21,29 +21,28 @@ python Main.py --Generations 500 --Popsize 50 --HiddenNum 500 --plot  --save --s
  #### This is the results of Auto-Encoder (AE) with sinlge hidden layer on MNIST results: the x-axis is MSE loss, and the y-axis is the sparsity in term of L0-norm
 
 Initial result: 
-<img src="./result/plot_initialization.png" width = "300" />
-
-
+<img src="./result/plot_initialization.png" width = "500" />
 
 Result after evolution: 
-<img src="./result/plot_499.png" width = "300" />
-
-
+<img src="./result/plot_499.png" width = "500" />
 
 Final results:
-![Solution after SSGD](./result/plot_500.png)
+<img src="./result/plot_500.png" width = "500" />
+
 
  #### Next, the comparison of  final solutions obtained by GEMONN, SGD, Adam, and NSGA-II vatiants on MNIST is shown in the MSE-Sparsity axis as follows:
-![MSE_pareto](./result/MSE_Pareto.png)
+
+<img src="./result/MSE_Pareto.png" width = "500" />
 
 #### Then, the convergence spped of GEMONN and these compared approaches in terms of the decline in MSE are presented (MNIST):
-![MSE_decline](./result/MSE_descent.png)
+
+<img src="./result/MSE_descent.png" width = "500" />
 
 #### The following figure shows the test CCR values (accuracy) of the models on ten datasets, which tail a classifier  to the hidden layer of the AE:
-![MSE_decline](./result/acc_comparison.png)
+<img src="./result/acc_comparison.png" width = "500" />
 
  #### In the following,  the comparison of final solution in terms of sparsity is given:
- ![sparsity_comparison](./result/sparsity_comparison.png) 
+ <img src="./result/sparsity_comparison.png" width = "500" />
 
  #### The sparsity obtained by GEMONN in different generation:
 
