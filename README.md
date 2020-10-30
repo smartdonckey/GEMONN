@@ -67,20 +67,34 @@ python Main.py --Generations 500 --Popsize 50 --HiddenNum 500 --plot  --save --s
 
 
 
-#### The reconstruction image of the optimal solution obtained by GEMONN in different generation:
+#### The reconstruction image of the optimal solution obtained by GEMONN in different generation(1st, 10th, 50th, 100th, 200th, 300th, 500th, orinal_image):
 
  
 
  
  <div align="center">
-<img src="./result/restruction_0.svg" height="300" width="300" >
+<img src="./result/restruction_0.svg" height="200" width="200" >
 
-<img src="./result/restruction_50.svg" height="350" width="350" >
+<img src="./result/restruction_10.svg" height="250" width="250" >
 
-<img src="./result/restruction_100.svg" height="350" width="350" >
+<img src="./result/restruction_50.svg" height="250" width="250" >
+
+<img src="./result/restruction_100.svg" height="250" width="250" >
 
  </div>
+ 
+ 
+ <div align="center">
+<img src="./result/restruction_200.svg" height="250" width="250" >
 
+<img src="./result/restruction_300.svg" height="250" width="250" >
+
+<img src="./result/restruction_499.svg" height="250" width="250" >
+
+<img src="./result/original_image.svg" height="250" width="250" >
+
+ </div>
+ 
 
 
 ## Extension on more models
