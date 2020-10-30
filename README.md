@@ -59,9 +59,7 @@ Final results:
 #### The reconstruction image of the optimal solution obtained by GEMONN in different generation:
 
  
- <center class="half">
-    <img src="https://github.com/smartdonckey/GEMONN/blob/master/result/restruction_0.svg" width="200"/><img src="https://github.com/smartdonckey/GEMONN/blob/master/result/restruction_0.svg" width="200"/><img src="https://github.com/smartdonckey/GEMONN/blob/master/result/restruction_0.svg" width="200"/>
-</center>
+![1](./result/restruction_0.svg)![10](./result/restruction_10.svg)![50](./result/restruction_50.svg)!
  
 
 
