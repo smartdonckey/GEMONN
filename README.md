@@ -48,12 +48,12 @@ python Main.py --Generations 500 --Popsize 50 --HiddenNum 500 --plot  --save --s
  #### The sparsity obtained by GEMONN in different generation(1st, 10th, 100th, and 500th):
 
  <div align="center">
-<img src="./result/1st_weights.png" height="500" width="500" >
+<img src="./result/1st_weights.png" height="500" alt="1st generation" width="500" >
 
-<img src="./result/10th_weights.png" height="500" width="500" >
+<img src="./result/10th_weights.png" height="500" alt="10th generationn" width="500" >
 
  </div>
- (1st generation)                                     (10th generation)
+
  
 
 
