@@ -8,14 +8,14 @@ from public import NDsort
 import time
 import matplotlib.pyplot as plt
 import cupy as np
-import numpy
+import numpy,argparse
 
 
 
 
 
 
-def EA_Run(Generations, PopSize, HiddenNum, M, Run, Problem, Algorithm):
+def EA_Run(Generations, PopSize, HiddenNum, Algorithm, args):
 
     Dim, train_loader, test_loader = LoadData(batch=128)
     Model = Net(Dim, HiddenNum, Dim).cuda()
@@ -40,7 +40,9 @@ def EA_Run(Generations, PopSize, HiddenNum, M, Run, Problem, Algorithm):
         Offspring = P_generator_SL_optimization.P_generator_SL(MatingPool, Weight_Grad_Mating, Boundary, Coding, PopSize)
         FunctionValue_Offspring, Weight_Grad_Offspring = Evaluation(Offspring, Dim, HiddenNum, train_loader,Model,False)
 
-        if Gene == 499:
+
+
+        if Gene == Generations+1:
             _, _, Offspring_Next = Evaluation(Population, Dim, HiddenNum, train_loader, Model,True)
             FunctionValue_Offspring_Next, Weight_Grad_Offspring_Next = Evaluation(Offspring_Next, Dim, HiddenNum, train_loader, Model,False)
 
@@ -62,22 +64,29 @@ def EA_Run(Generations, PopSize, HiddenNum, M, Run, Problem, Algorithm):
 
 
 
-        print(np.sort(FunctionValue[:, 1])[:2])
-        # plt.clf()
-        # plt.plot(FunctionValue[:, 0], FunctionValue[:, 1], "*")
-        # plt.pause(0.001)
+        if args.plot:
+            plt.clf()
+            plt.plot(FunctionValue[:, 0], FunctionValue[:, 1], "*")
+            plt.pause(0.001)
 
 
-        print(Algorithm, "Run :", Gene, "代，Complete：", 100 * Gene / Generations, "%, time consuming:",
-              numpy.round(time.time() - since, 2), "s")
+        print('\r',Algorithm, "Run :", Gene, "代，Complete：", 100 * Gene / (Generations-1), "%, time consuming:",
+              numpy.round(time.time() - since, 2), "s, minimal loss:", np.sort(FunctionValue[:, 1])[:1], end='')
 
 
 
 
     FunctionValueNon = FunctionValue[(FrontValue == 1)[0], :]
     PopulationNon = Population[(FrontValue == 1)[0],:]
+    if args.save:
+        numpy.savetxt(args.save_dir+'/FunctionValueNon.txt', FunctionValueNon,delimiter=' ')
+        numpy.savetxt(args.save_dir+'/PopulationNon.txt', np.asnumpy(PopulationNon),delimiter=' ')
+
+        plt.plot(FunctionValue[:, 0], FunctionValue[:, 1], "*")
+        plt.savefig(args.save_dir + '/plot_'+str(Generations-1)+'.png')
 
     plt.plot(FunctionValue[:, 0], FunctionValue[:, 1], "*")
+    plt.savefig(args.save_dir + '/plot_' + str(Generations) + '.png')
     plt.ioff()
     plt.show()
 
@@ -86,16 +95,26 @@ def EA_Run(Generations, PopSize, HiddenNum, M, Run, Problem, Algorithm):
 
 
 
+
 if __name__ == "__main__":
 
+    parser = argparse.ArgumentParser(description='GEMONN setting')
 
-    Generations = 10
-    PopSize = 50
-    HiddenNum = 500 #1300
-    M = 2
-    Run = 1
-    Algorithm = "NSGA-II"
-    Problem = "DTLZ1"
-    root = 'result_millon_'
+    parser.add_argument('--Generations',type=int,default=500,help='The maximal iteration of the algorithm')
+    parser.add_argument('--Popsize',type=int,default=50,help='The population size')
 
-    EA_Run(Generations, PopSize, HiddenNum, M, Run, Problem, Algorithm)
+    parser.add_argument('--HiddenNum',type=int,default=500,help='The number of hidden units of an auto-encoder')
+    parser.add_argument('--Algorithm',type=str,default="NSGA-II",help='The used framwork of Evoluitonary Algorithms ')
+
+    parser.add_argument('--plot', action='store_true', default=True, help='Plot the function value each generation')
+    parser.add_argument('--save', action='store_true', default=True)
+    parser.add_argument('--save_dir', type=str, default='./result')
+
+
+
+    args = parser.parse_args()
+    create_dir(args.save_dir)
+
+
+
+    EA_Run(args.Generations, args.Popsize, args.HiddenNum, args.Algorithm,args)

@@ -5,7 +5,7 @@ import torch.nn.functional as F
 import torchvision.datasets as dsets
 import torchvision.transforms as transforms
 
-
+import os,numpy
 import cupy as np
 
 
@@ -189,6 +189,133 @@ def coperate_Weight_Grad(Weight_Grad_Temp,Weight_Grad_T_):
     Result_Grad[zeroIndex] = 0
 
     return Result_Grad
+
+def create_dir(path):
+    if not os.path.exists(path):
+        try:
+            os.mkdir(path)
+        except Exception:
+            os.makedirs(path)
+        print('Make Dir: {}'.format(path))
+
+
+class LeNet5(nn.Module):
+    def __init__(self):
+        super(LeNet5, self).__init__()
+        self.conv1 = nn.Conv2d(3, 6, 5)
+        self.conv2 = nn.Conv2d(6, 16, 5)
+        self.fc1   = nn.Linear(16*5*5, 120)
+        self.fc2   = nn.Linear(120, 84)
+        self.fc3   = nn.Linear(84, 10)
+
+    def forward(self, x):
+        x = F.max_pool2d(F.relu(self.conv1(x)), (2, 2))
+        x = F.max_pool2d(F.relu(self.conv2(x)), 2)
+        x = x.view(x.size()[0], -1)
+        x = F.relu(self.fc1(x))
+        x = F.relu(self.fc2(x))
+        x = self.fc3(x)
+        return x
+def Initialization_Pop(PopSize, Model):
+    Dim = 0
+    SizeInform = []
+    LengthInform = []
+    Parameter = list(Model.parameters())
+
+
+    for i in  range(0,len(Parameter)):
+
+
+        SizeInform.append([Parameter[i].shape])
+        if len(Parameter[i].shape)<2:
+            Dim_module = Parameter[i].shape[0]
+        else:
+            Dim_module = np.array(numpy.prod(Parameter[i].shape))
+
+
+        LengthInform.extend([Dim_module])
+
+        Dim = Dim + Dim_module
+
+    # Population = (np.random.random((PopSize, Dim * HiddenNum)) - 0.5) * 2 * ((np.power(6 / (Dim + HiddenNum), 1 / 2)))
+    Dim = int(Dim)
+    Population = np.random.rand(PopSize, Dim) - 0.5
+
+    for i in range(PopSize):
+        Model.apply(weight_init)
+        Population[i] = Extract_weight(Model,SizeInform)
+        Population[i] = Population[i]*(np.random.rand( Dim ) < ((i+1)/PopSize)/1)#
+
+    Boundary =  np.tile([[10], [-10]], [1, Dim])
+
+    Upper = np.tile(Boundary[0],(PopSize,1))
+    Lower = np.tile(Boundary[1],(PopSize,1))
+    Population = np.maximum(np.minimum(Upper,Population), Lower)
+
+
+
+
+    # Boundary = np.tile([[20], [-20]], [1, Dim * HiddenNum])
+    Coding = 'Real'
+    return Population, Boundary, Coding, SizeInform, LengthInform
+
+
+
+def weight_init(m):
+    if isinstance(m, nn.Linear):
+        nn.init.xavier_uniform_(m.weight.data)
+        nn.init.constant_(m.bias.data,0.01)
+
+
+
+def Extract_weight(Model,SizeInform):
+    weight = []
+    Parameter_list = list(Model.named_parameters())
+    for i, module in enumerate(Parameter_list):
+        if len(SizeInform[i][0])>1:
+            module_weight = np.reshape(module[1].data.cpu().numpy(),(-1,))
+        else:
+            module_weight = np.array(module[1].data.cpu().numpy())
+        # print(module[0])
+        weight.extend(module_weight)
+
+    return np.array(numpy.float64(weight))
+
+def Pop2weights(Individual,SizeInform,LengthInform,Parameter_dict ):
+    start_point = 0
+    i = 0
+    for j, module in enumerate(Parameter_dict):
+
+        if Parameter_dict[module].data.size()==SizeInform[i][0]:
+
+            end_point = int(start_point + LengthInform[i])
+            if len(SizeInform[i][0])>1:
+                Parameter_dict[module].data = torch.Tensor(np.reshape(Individual[start_point:end_point],SizeInform[i][0]))
+            else:
+                Parameter_dict[module].data = torch.Tensor(Individual[start_point:end_point])
+            i+= 1
+            start_point = end_point
+
+        else:
+            continue
+
+
+
+    return Parameter_dict
+
+if __name__ == '__main__':
+
+    Model = LeNet5()
+
+    Parameter_dict = Model.state_dict()
+
+    Population, Boundary, Coding, SizeInform, LengthInform = Initialization_Pop(PopSize = 10, Model = Model)
+
+    Parameter_dict_i = Pop2weights(Population[0], SizeInform, LengthInform, Parameter_dict)
+
+    Model.load_state_dict(Parameter_dict_i)
+
+
 
 
 
