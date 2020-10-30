@@ -1,5 +1,5 @@
 ## Introduction
-This the source code of GEMONN 'A Gradient Guided Evolutionary Approach to Training Deep Neural Networks'
+This the source code of GEMONN *A Gradient Guided Evolutionary Approach to Training Deep Neural Networks*
 
 ## Requirements and  Dependency
 ```bash
@@ -18,11 +18,14 @@ python Main.py --Generations 500 --Popsize 50 --HiddenNum 500 --plot  --save --s
 ## Result 
 This is the results of Auto-Encoder (AE) with sinlge hidden layer on MNIST results
 
-Initial result: ![]
+Initial result: 
+![Solution of initialization SSGD](./result/plot_initialization.png)
 
-Result after evolution: ![Solution before SSGD](./result/plot_499.png)
+Result after evolution: 
+![Solution before SSGD](./result/plot_499.png)
 
 Final results:
+![Solution after SSGD](./result/plot_500.png)
 
 ## Extension on more models
 For training more models such as LSTM and CNNs, there are guidance  in  `Private_function.py' :
@@ -37,7 +40,7 @@ Model = LeNet()
 ```
 3) Initialize the population and obtain corresponding size and length inforamtion of weighs in different parts of the model :
 ```bash
- Population, Boundary, Coding, SizeInform, LengthInform = Initialization_Pop(PopSize =10, Model = Model)
+ Population, Boundary, Coding, SizeInform, LengthInform = Initialization_Pop_(PopSize =10, Model = Model)
 ```
 4) Obtain the weights dictionary of each individual in population and compte the inference loss for evaluation:
 ```bash
