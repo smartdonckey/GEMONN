@@ -20,7 +20,7 @@ This is the results of Auto-Encoder (AE) with sinlge hidden layer on MNIST resul
 
 Initial result: ![]
 
-Result after evolution:
+Result after evolution: ![Solution before SSGD](./result/plot_499.png)
 
 Final results:
 
