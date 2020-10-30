@@ -16,9 +16,9 @@ python Main.py
 python Main.py --Generations 500 --Popsize 50 --HiddenNum 500 --plot  --save --save_dir ./result
 ```
 ## Result 
-This is the results of Auto-Encoder (AE)
+This is the results of Auto-Encoder (AE) with sinlge hidden layer on MNIST results
 
-Initial result:
+Initial result: ![]
 
 Result after evolution:
 
