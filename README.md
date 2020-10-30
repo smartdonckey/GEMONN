@@ -59,8 +59,16 @@ Final results:
 #### The reconstruction image of the optimal solution obtained by GEMONN in different generation:
 
  
-![1](./result/restruction_0.svg) ![10](./result/restruction_10.svg) ![50](./result/restruction_50.svg)!
+
  
+ <div align="center">
+<img src="./result/restruction_0.svg" height="330" width="190" >
+
+<img src="./result/restruction_0.svg" height="330" width="190" >
+
+<img src="./result/restruction_0.svg" height="330" width="190" >
+
+ </div>
 
 
 
