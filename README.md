@@ -30,8 +30,14 @@ Result after evolution:
 Final results:
 ![Solution after SSGD](./result/plot_500.png)
 
-Next, the comparison of GEMONN, SGD, Adam, and NSGA-II vatiants are shown as follows:
-![MSE_pareto](./result/MSE_Pareto.eps)
+Next, the comparison of  final solutions obtained by GEMONN, SGD, Adam, and NSGA-II vatiants on MNIST is shown in the MSE-Sparsity axis as follows:
+![MSE_pareto](./result/MSE_Pareto.png)
+
+Then, the convergence spped of GEMONN and these compared approaches in terms of the decline in MSE are presented (MNIST):
+![MSE_decline](./result/MSE_descent.png)
+
+The following figure shows the test CCR values (accuracy) of the models on ten datasets, which tail a classifier  to the hidden layer of the AE:
+![MSE_decline](./result/MSE_descent.png)
 
 ## Extension on more models
 For training more models such as LSTM and CNNs, there are guidance  in  `Private_function.py` :
