@@ -42,6 +42,11 @@ Final results:
  ![sparsity_comparison](./result/sparsity_comparison.png) 
 
  #### The sparsity obtained by GEMONN in different generation:
+ 
+ <center class="half">
+    <img src="./result/1st_weights.png" width="200"/><img src="./result/1st_weights.png" width="200"/><img src="./result/1st_weights.png" width="200"/>
+</center>
+ 
 ![1st_weights](./result/1st_weights.png) 
 （1st generation）
 
