@@ -94,17 +94,17 @@ python Main.py --Generations 500 --Popsize 50 --HiddenNum 500 --plot  --save --s
 <img src="./result/original_image.svg" height="237" width="237" >
 
  </div>
-    (200th generation)                                      (300th generation) (500th generation) (origianl image
+    (200th generation)                                      (300th generation) (500th generation) (origianl image)
 
 
-## Extension on more models
+## Extension for More Models
 For training more models such as LSTM and CNNs, there are guidance  in  `Private_function.py` :
 
 1) Get your model in pytorch
 ```bash
 Model = LeNet()
 ```
-2) Get the weights dictionary of model :
+2) Get the weights dictionary of the model :
 ```bash
  Parameter_dict = Model.state_dict()
 ```
@@ -112,7 +112,7 @@ Model = LeNet()
 ```bash
  Population, Boundary, Coding, SizeInform, LengthInform = Initialization_Pop_(PopSize =10, Model = Model)
 ```
-4) Obtain the weights dictionary of each individual in population and compte the inference loss for evaluation:
+4) Obtain the weights dictionary of each individual in population and compute the inference loss for evaluation:
 ```bash
  Parameter_dict_i = Pop2weights(Population[0], SizeInform, LengthInform, Parameter_dict)
  Model.load_state_dict(Parameter_dict_i)
