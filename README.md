@@ -20,26 +20,27 @@ python Main.py --Generations 500 --Popsize 50 --HiddenNum 500 --plot  --save --s
 ## Result 
  #### This is the results of Auto-Encoder (AE) with sinlge hidden layer on MNIST results: the x-axis is MSE loss, and the y-axis is the sparsity in term of L0-norm
 
-Initial result: 
-<img src="./result/plot_initialization.png" width = "500" />
 
-Result after evolution: 
-<img src="./result/plot_499.png" width = "500" />
+<img src="./result/plot_initialization.png" width = "500" align=center/>
+(Initial result)
 
-Final results:
-<img src="./result/plot_500.png" width = "500" />
 
+<img src="./result/plot_499.png" width = "500" align=center/>
+(Result after evolution)
+
+<img src="./result/plot_500.png" width = "500" align=center/>
+(Final results)
 
  #### Next, the comparison of  final solutions obtained by GEMONN, SGD, Adam, and NSGA-II vatiants on MNIST is shown in the MSE-Sparsity axis as follows:
 
-<img src="./result/MSE_Pareto.png" width = "500" />
+<img src="./result/MSE_Pareto.png" width = "500" align=center/>
 
 #### Then, the convergence spped of GEMONN and these compared approaches in terms of the decline in MSE are presented (MNIST):
 
-<img src="./result/MSE_descent.png" width = "500" />
+<img src="./result/MSE_descent.png" width = "500" align=center/>
 
 #### The following figure shows the test CCR values (accuracy) of the models on ten datasets, which tail a classifier  to the hidden layer of the AE:
-<img src="./result/acc_comparison.png" width = "500" />
+<img src="./result/acc_comparison.png" width = "500" align=center/>
 
  #### In the following,  the comparison of final solution in terms of sparsity is given:
  ![sparsity_comparison](result/sparsity_comparison.png)
@@ -52,6 +53,8 @@ Final results:
 <img src="./result/10th_weights.png" height="500" width="500" >
 
  </div>
+ (1st generation)                                     (10th generation)
+ 
 
 
  <div align="center">
@@ -60,7 +63,7 @@ Final results:
 <img src="./result/500th_weights.png" height="500" width="500" >
 
  </div>
-
+ (100th generation)                                     (500th generation)
 
 
 
@@ -72,9 +75,9 @@ Final results:
  <div align="center">
 <img src="./result/restruction_0.svg" height="330" width="190" >
 
-<img src="./result/restruction_50.svg" height="330" width="190" >
+<img src="./result/restruction_50.svg" height="500" width="500" >
 
-<img src="./result/restruction_100.svg" height="330" width="190" >
+<img src="./result/restruction_100.svg" height="500" width="500" >
 
  </div>
 
