@@ -28,6 +28,8 @@ Result after evolution:
 Final results:
 ![Solution after SSGD](./result/plot_500.png)
 
+Next, the comparison of GEMONN, SGD, Adam, and NSGA-II vatiants are shown as follows:
+![MSE_pareto](./result/MSE_Pareto.eps)
 
 ## Extension on more models
 For training more models such as LSTM and CNNs, there are guidance  in  `Private_function.py' :
