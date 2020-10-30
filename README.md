@@ -21,10 +21,14 @@ python Main.py --Generations 500 --Popsize 50 --HiddenNum 500 --plot  --save --s
  #### This is the results of Auto-Encoder (AE) with sinlge hidden layer on MNIST results: the x-axis is MSE loss, and the y-axis is the sparsity in term of L0-norm
 
 Initial result: 
-![Solution of initialization SSGD](./result/plot_initialization.png)
+<img src="./result/plot_initialization.png" width = "300" />
+
+
 
 Result after evolution: 
-![Solution before SSGD](./result/plot_499.png)
+<img src="./result/plot_499.png" width = "300" />
+
+
 
 Final results:
 ![Solution after SSGD](./result/plot_500.png)
