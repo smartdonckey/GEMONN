@@ -42,21 +42,26 @@ Final results:
 <img src="./result/acc_comparison.png" width = "500" />
 
  #### In the following,  the comparison of final solution in terms of sparsity is given:
- <img src="./result/sparsity_comparison.png" width = "500" />
+ ![sparsity_comparison](result/sparsity_comparison.png)
 
- #### The sparsity obtained by GEMONN in different generation:
+ #### The sparsity obtained by GEMONN in different generation(1st, 10th, 100th, and 500th):
 
-![1st_weights](./result/1st_weights.png) 
-（1st generation）
+ <div align="center">
+<img src="./result/1st_weights.png" height="500" width="500" >
 
-![2nd_weights](./result/10th_weights.png)
-（10th generation）
+<img src="./result/10th_weights.png" height="500" width="500" >
 
-![3rd_weights](./result/100th_weights.png) 
-（100th generation）
+ </div>
 
-![4th_weights](./result/500th_weights.png)
-（500th generation）
+
+ <div align="center">
+<img src="./result/100th_weights.png" height="500" width="500" >
+
+<img src="./result/500th_weights.png" height="500" width="500" >
+
+ </div>
+
+
 
 
 #### The reconstruction image of the optimal solution obtained by GEMONN in different generation:
@@ -67,9 +72,9 @@ Final results:
  <div align="center">
 <img src="./result/restruction_0.svg" height="330" width="190" >
 
-<img src="./result/restruction_0.svg" height="330" width="190" >
+<img src="./result/restruction_50.svg" height="330" width="190" >
 
-<img src="./result/restruction_0.svg" height="330" width="190" >
+<img src="./result/restruction_100.svg" height="330" width="190" >
 
  </div>
 
