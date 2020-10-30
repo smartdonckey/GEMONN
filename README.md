@@ -54,7 +54,7 @@ python Main.py --Generations 500 --Popsize 50 --HiddenNum 500 --plot  --save --s
 
  </div>
 
- 
+  (1st generation)                                      (10th generation)
 
 
  <div align="center">
@@ -82,7 +82,7 @@ python Main.py --Generations 500 --Popsize 50 --HiddenNum 500 --plot  --save --s
 <img src="./result/restruction_100.svg" height="250" width="250" >
 
  </div>
- 
+   (1st generation)                                      (10th generation) (50th generation) (100th generation)
  
  <div align="center">
 <img src="./result/restruction_200.svg" height="237" width="237" >
@@ -94,7 +94,7 @@ python Main.py --Generations 500 --Popsize 50 --HiddenNum 500 --plot  --save --s
 <img src="./result/original_image.svg" height="237" width="237" >
 
  </div>
- 
+    (200th generation)                                      (300th generation) (500th generation) (origianl image
 
 
 ## Extension on more models
