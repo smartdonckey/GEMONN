@@ -1,3 +1,5 @@
+# GEMONN
+
 ## Introduction
 This the source code of GEMONN *A Gradient Guided Evolutionary Approach to Training Deep Neural Networks*
 
@@ -32,7 +34,7 @@ Next, the comparison of GEMONN, SGD, Adam, and NSGA-II vatiants are shown as fol
 ![MSE_pareto](./result/MSE_Pareto.eps)
 
 ## Extension on more models
-For training more models such as LSTM and CNNs, there are guidance  in  `Private_function.py' :
+For training more models such as LSTM and CNNs, there are guidance  in  `Private_function.py` :
 
 1) Get your model in pytorch
 ```bash
